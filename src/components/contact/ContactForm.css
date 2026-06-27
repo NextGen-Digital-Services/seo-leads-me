@@ -1,0 +1,135 @@
+.contact-form-wrapper {
+  background-color: var(--color-white);
+  padding: 40px;
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-lg);
+  border: 1px solid var(--color-border);
+  width: 100%;
+}
+
+.form-heading {
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: var(--color-primary);
+  margin-bottom: 8px;
+  font-family: var(--font-headings);
+}
+
+.form-subtext {
+  font-size: 0.95rem;
+  color: var(--color-text-muted);
+  margin-bottom: 30px;
+  line-height: 1.5;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+}
+
+.form-label {
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--color-primary);
+  margin-bottom: 6px;
+}
+
+.form-input {
+  width: 100%;
+  padding: 12px 16px;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--border-radius-sm);
+  background-color: var(--color-light-bg);
+  color: var(--color-primary);
+  transition: border-color var(--transition-speed), box-shadow var(--transition-speed);
+}
+
+.form-input::placeholder {
+  color: #a0aec0;
+}
+
+/* Red-orange focus border glow */
+.form-input:focus {
+  outline: none;
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 3px rgba(230, 58, 0, 0.15);
+}
+
+.form-textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+/* Error States styling */
+.input-error {
+  border-color: #e53e3e;
+}
+
+.input-error:focus {
+  border-color: #e53e3e;
+  box-shadow: 0 0 0 3px rgba(229, 62, 98, 0.15);
+}
+
+.error-message-text {
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #e53e3e;
+  margin-top: 4px;
+}
+
+/* Success Message styling */
+.success-message {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background-color: #f0fff4;
+  border: 1px solid #c6f6d5;
+  padding: 15px;
+  border-radius: var(--border-radius-md);
+  margin-bottom: 24px;
+}
+
+.success-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  background-color: #38a169;
+  color: var(--color-white);
+  border-radius: 50%;
+  font-weight: 700;
+  font-size: 0.85rem;
+}
+
+.success-text {
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #276749;
+}
+
+.form-submit-btn {
+  margin-top: 10px;
+}
+
+@media (max-width: 576px) {
+  .contact-form-wrapper {
+    padding: 30px 20px;
+  }
+  .form-heading {
+    font-size: 1.5rem;
+  }
+}

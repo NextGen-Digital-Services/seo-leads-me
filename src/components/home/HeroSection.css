@@ -1,0 +1,163 @@
+.home-hero {
+  min-height: calc(100vh - var(--navbar-height));
+  background-color: var(--color-primary);
+  display: flex;
+  align-items: center;
+  padding-top: calc(var(--navbar-height) + 40px);
+  padding-bottom: 60px;
+  overflow: hidden;
+}
+
+.home-hero-container {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr; /* 60% / 40% spacing */
+  gap: 50px;
+  align-items: center;
+}
+
+.hero-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.hero-title-group {
+  margin-bottom: 24px;
+}
+
+.hero-title-line {
+  font-size: 3.25rem; /* 52px */
+  font-weight: 800;
+  line-height: 1.15;
+  color: var(--color-white);
+}
+
+.line-highlight {
+  color: var(--color-accent);
+}
+
+.hero-subtext {
+  font-size: 1rem; /* 16px */
+  color: var(--color-white);
+  opacity: 0.85;
+  line-height: 1.7;
+  margin-bottom: 36px;
+  max-width: 580px;
+}
+
+.hero-cta-group {
+  display: flex;
+  gap: 20px;
+}
+
+/* Image wrapper and decorative red-orange clip-path */
+.hero-image-wrapper {
+  position: relative;
+  width: 100%;
+  height: 480px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Underlay decorative border */
+.hero-image-wrapper::before {
+  content: '';
+  position: absolute;
+  top: 10px;
+  left: -10px;
+  width: 100%;
+  height: 100%;
+  background-color: var(--color-accent);
+  clip-path: polygon(12% 0, 100% 0, 100% 100%, 0% 100%);
+  z-index: 1;
+}
+
+.image-clip-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  clip-path: polygon(12% 0, 100% 0, 100% 100%, 0% 100%);
+  overflow: hidden;
+  z-index: 2;
+}
+
+.image-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(230, 58, 0, 0.15), rgba(13, 27, 42, 0.4));
+  pointer-events: none;
+  z-index: 3;
+}
+
+.hero-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.hero-image-wrapper:hover .hero-image {
+  transform: scale(1.05);
+}
+
+/* Responsive adjustments */
+@media (max-width: 1200px) {
+  .hero-title-line {
+    font-size: 2.85rem;
+  }
+}
+
+@media (max-width: 992px) {
+  .home-hero-container {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    text-align: center;
+  }
+  
+  .hero-content {
+    align-items: center;
+  }
+
+  .hero-subtext {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero-cta-group {
+    justify-content: center;
+  }
+
+  .hero-image-wrapper {
+    height: 380px;
+    max-width: 500px;
+    margin: 0 auto;
+  }
+  
+  .hero-image-wrapper::before {
+    clip-path: polygon(8% 0, 100% 0, 100% 100%, 0% 100%);
+  }
+
+  .image-clip-container {
+    clip-path: polygon(8% 0, 100% 0, 100% 100%, 0% 100%);
+  }
+}
+
+@media (max-width: 576px) {
+  .hero-title-line {
+    font-size: 2.25rem;
+  }
+  .hero-cta-group {
+    flex-direction: column;
+    width: 100%;
+    gap: 15px;
+  }
+  .hero-cta-group a {
+    width: 100%;
+  }
+  .hero-image-wrapper {
+    height: 280px;
+  }
+}

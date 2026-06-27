@@ -1,0 +1,93 @@
+.stats-bar {
+  padding: 50px 0;
+  width: 100%;
+}
+
+.stats-theme-dark {
+  background-color: var(--color-primary-light);
+  border-top: 1px solid var(--color-border-dark);
+  border-bottom: 1px solid var(--color-border-dark);
+}
+
+.stats-theme-light {
+  background-color: transparent;
+  padding: 0;
+}
+
+.stats-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  flex: 1;
+  min-width: 180px;
+  padding: 10px;
+}
+
+.stat-value {
+  font-family: var(--font-headings);
+  font-weight: 800;
+  font-size: 3rem; /* 48px */
+  color: var(--color-accent);
+  line-height: 1;
+  margin-bottom: 8px;
+}
+
+.stat-label {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--color-text-light);
+}
+
+.stats-theme-light .stat-label {
+  color: var(--color-text-muted);
+}
+
+/* Vertical divider styling */
+.stat-divider {
+  width: 1px;
+  height: 50px;
+  background-color: var(--color-border-dark);
+}
+
+.stats-theme-light .stat-divider {
+  background-color: var(--color-border);
+}
+
+/* Responsive Overrides */
+@media (max-width: 992px) {
+  .stat-value {
+    font-size: 2.5rem;
+  }
+  .stat-label {
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .stats-bar {
+    padding: 30px 0;
+  }
+  
+  .stats-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  .stat-item {
+    min-width: unset;
+  }
+
+  .stat-divider {
+    display: none; /* Hide vertical dividers on mobile grid layouts */
+  }
+}

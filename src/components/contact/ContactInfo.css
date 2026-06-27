@@ -1,0 +1,125 @@
+.contact-info-wrapper {
+  background-color: var(--color-primary-light);
+  padding: 40px;
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-lg);
+  border: 1px solid var(--color-border-dark);
+  color: var(--color-white);
+  width: 100%;
+}
+
+.info-heading {
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: var(--color-white);
+  margin-bottom: 8px;
+  font-family: var(--font-headings);
+  position: relative;
+}
+
+.info-heading::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -8px;
+  width: 40px;
+  height: 2px;
+  background-color: var(--color-accent);
+}
+
+.info-subtext {
+  font-size: 0.95rem;
+  color: var(--color-text-light);
+  opacity: 0.8;
+  margin-top: 20px;
+  margin-bottom: 30px;
+  line-height: 1.6;
+}
+
+/* Info Items List */
+.info-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin-bottom: 36px;
+}
+
+.info-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+/* Red circle icons for contact details */
+.info-icon-circle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background-color: var(--color-accent);
+  border-radius: var(--border-radius-full);
+  flex-shrink: 0;
+  box-shadow: var(--shadow-accent);
+}
+
+.info-icon-span {
+  font-size: 1.2rem;
+  color: var(--color-white);
+}
+
+.info-text-block {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.info-label {
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--color-accent);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 2px;
+}
+
+.info-value,
+.info-value-text {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--color-white);
+  line-height: 1.4;
+}
+
+.info-value {
+  transition: color var(--transition-speed);
+}
+
+.info-value:hover {
+  color: var(--color-accent);
+}
+
+/* Map frame wrapper styling */
+.map-container {
+  overflow: hidden;
+  border-radius: var(--border-radius-md);
+  border: 1.5px solid var(--color-border-dark);
+  box-shadow: var(--shadow-md);
+  height: 250px;
+}
+
+.map-container iframe {
+  display: block;
+}
+
+@media (max-width: 576px) {
+  .contact-info-wrapper {
+    padding: 30px 20px;
+  }
+  .info-heading {
+    font-size: 1.5rem;
+  }
+}

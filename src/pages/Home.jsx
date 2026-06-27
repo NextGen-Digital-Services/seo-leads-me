@@ -28,7 +28,7 @@ export const Home = () => {
       <WhyChooseUs />
 
       {/* Dark Navy Stats strip */}
-      <StatsBar theme="dark" />
+      <StatsBar />
 
       {/* Light background customer reviews */}
       <Testimonials />

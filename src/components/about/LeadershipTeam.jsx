@@ -5,28 +5,25 @@ import './LeadershipTeam.css';
 
 export const LeadershipTeam = () => {
   return (
-    <section className="leadership-section section-light">
+    <section className="team">
       <div className="container">
         {/* Centered Section Title */}
         <SectionTitle
           title="Our Leadership Team"
           subtitle="The Experts Behind SEO Leads Me"
-          align="center"
+          theme="light"
         />
 
         {/* Team Grid */}
-        <div className="team-grid grid-4">
+        <div className="team__grid">
           {teamMembers.map((member) => (
             <div key={member.id} className="team-card fade-up-element">
-              <div className="team-image-wrapper">
-                <img
-                  src={member.image}
-                  alt={`${member.name} - ${member.role}`}
-                  className="team-image"
-                />
-              </div>
-              <h3 className="team-member-name">{member.name}</h3>
-              <p className="team-member-role">{member.role}</p>
+              <img
+                src={member.image}
+                alt={`${member.name} - ${member.role}`}
+              />
+              <h4>{member.name}</h4>
+              <p>{member.role}</p>
             </div>
           ))}
         </div>

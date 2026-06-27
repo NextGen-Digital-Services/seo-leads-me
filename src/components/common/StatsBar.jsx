@@ -1,37 +1,27 @@
 import React from 'react';
+import { FaTrophy, FaSmile, FaCalendarAlt, FaStar } from 'react-icons/fa';
 import './StatsBar.css';
 
 const DEFAULT_STATS = [
-  { value: '250+', label: 'Projects Completed' },
-  { value: '180+', label: 'Happy Clients' },
-  { value: '12+', label: 'Years of Experience' },
-  { value: '95%', label: 'Client Satisfaction' }
+  { value: '250+', label: 'Projects Completed', icon: <FaTrophy /> },
+  { value: '180+', label: 'Happy Clients', icon: <FaSmile /> },
+  { value: '12+', label: 'Years of Experience', icon: <FaCalendarAlt /> },
+  { value: '95%', label: 'Client Satisfaction', icon: <FaStar /> }
 ];
 
-/**
- * Reusable Stats Bar component with vertical dividers.
- * @param {Object} props
- * @param {Array} [props.stats=DEFAULT_STATS] - Array of { value, label } stats.
- * @param {string} [props.theme='dark'] - Theme style: 'dark' (navy bar) or 'light' (achievements styled).
- */
-export const StatsBar = ({
-  stats = DEFAULT_STATS,
-  theme = 'dark'
-}) => {
+export const StatsBar = ({ stats = DEFAULT_STATS }) => {
   return (
-    <div className={`stats-bar stats-theme-${theme} fade-up-element`}>
-      <div className="container stats-container">
-        {stats.map((stat, index) => (
-          <React.Fragment key={stat.label}>
-            <div className="stat-item">
-              <span className="stat-value">{stat.value}</span>
-              <span className="stat-label">{stat.label}</span>
-            </div>
-            {index < stats.length - 1 && <div className="stat-divider"></div>}
-          </React.Fragment>
+    <section className="stats">
+      <div className="stats__grid">
+        {stats.map((stat) => (
+          <div key={stat.label} className="stats__item fade-up-element">
+            {stat.icon}
+            <span className="stats__number">{stat.value}</span>
+            <span className="stats__label">{stat.label}</span>
+          </div>
         ))}
       </div>
-    </div>
+    </section>
   );
 };
 

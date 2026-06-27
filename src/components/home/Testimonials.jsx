@@ -1,32 +1,30 @@
 import React from 'react';
+import { FaQuoteLeft } from 'react-icons/fa';
 import SectionTitle from '../common/SectionTitle';
 import { testimonials } from '../../data/testimonials';
 import './Testimonials.css';
 
 export const Testimonials = () => {
   return (
-    <section className="testimonials-section section-light">
-      <div className="container">
+    <section className="testimonials">
+      <div className="testimonials__inner">
         {/* Section Heading */}
         <SectionTitle
           title="What Our Clients Say"
           subtitle="Client Feedback"
           align="center"
+          theme="light"
         />
 
         {/* Testimonials Grid */}
-        <div className="testimonials-grid grid-3">
+        <div className="testimonials__grid">
           {testimonials.map((test) => (
-            <div key={test.id} className="testimonial-card fade-up-element">
-              {/* Large quote symbol */}
-              <div className="testimonial-quote-icon">❝</div>
-              <p className="testimonial-quote-text">{test.quote}</p>
-              
-              <div className="testimonial-author-meta">
-                <h4 className="testimonial-author-name">{test.author}</h4>
-                <p className="testimonial-author-role">
-                  {test.role}, <span className="author-company">{test.company}</span>
-                </p>
+            <div key={test.id} className="testimonial__card fade-up-element">
+              <FaQuoteLeft />
+              <p className="testimonial__text">{test.quote}</p>
+              <div className="testimonial__name">{test.author}</div>
+              <div className="testimonial__role">
+                {test.role}, {test.company}
               </div>
             </div>
           ))}

@@ -22,11 +22,7 @@ export const WebDesigningLeads = () => {
       />
 
       {/* Services Grid (white bg) */}
-      <section className="section-light">
-        <div className="container">
-          <WebServicesGrid />
-        </div>
-      </section>
+      <WebServicesGrid />
 
       {/* Design Process (dark navy bg) */}
       <DesignProcess />

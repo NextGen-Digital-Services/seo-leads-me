@@ -26,16 +26,18 @@ export const AboutUs = () => {
       <WhoWeAre />
 
       {/* Achievements Section (white bg) */}
-      <section className="section-light achievements-section" style={{ borderTop: '1px solid var(--color-border)', paddingBottom: '100px' }}>
+      <section className="section-light achievements-section" style={{ borderTop: '1px solid var(--color-border)', paddingBottom: '40px' }}>
         <div className="container">
           <SectionTitle
             title="Our Achievements"
             subtitle="Milestones & Numbers"
             align="center"
           />
-          <StatsBar theme="light" />
         </div>
       </section>
+
+      {/* Stats Bar (full-width navy) */}
+      <StatsBar />
 
       {/* Leadership Team Grid (white bg) */}
       <LeadershipTeam />

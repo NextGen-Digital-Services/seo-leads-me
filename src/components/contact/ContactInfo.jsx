@@ -1,4 +1,5 @@
 import React from 'react';
+import { FaPhone, FaEnvelope, FaMapMarkerAlt, FaClock } from 'react-icons/fa';
 import { CONTACT_INFO } from '../../utils/constants';
 import './ContactInfo.css';
 
@@ -11,11 +12,11 @@ export const ContactInfo = () => {
       </p>
 
       {/* Info List */}
-      <ul className="info-list">
+      <div className="info-list">
         {/* Phone */}
-        <li className="info-item">
-          <div className="info-icon-circle">
-            <span className="info-icon-span">📞</span>
+        <div className="contact-info-item">
+          <div className="contact-info-icon">
+            <FaPhone />
           </div>
           <div className="info-text-block">
             <span className="info-label">Phone</span>
@@ -23,12 +24,12 @@ export const ContactInfo = () => {
               {CONTACT_INFO.phone}
             </a>
           </div>
-        </li>
+        </div>
 
         {/* Email */}
-        <li className="info-item">
-          <div className="info-icon-circle">
-            <span className="info-icon-span">✉️</span>
+        <div className="contact-info-item">
+          <div className="contact-info-icon">
+            <FaEnvelope />
           </div>
           <div className="info-text-block">
             <span className="info-label">Email</span>
@@ -36,12 +37,12 @@ export const ContactInfo = () => {
               {CONTACT_INFO.email}
             </a>
           </div>
-        </li>
+        </div>
 
         {/* Address */}
-        <li className="info-item">
-          <div className="info-icon-circle">
-            <span className="info-icon-span">📍</span>
+        <div className="contact-info-item">
+          <div className="contact-info-icon">
+            <FaMapMarkerAlt />
           </div>
           <div className="info-text-block">
             <span className="info-label">Address</span>
@@ -49,22 +50,22 @@ export const ContactInfo = () => {
               {CONTACT_INFO.address}, USA
             </span>
           </div>
-        </li>
+        </div>
 
         {/* Business Hours */}
-        <li className="info-item">
-          <div className="info-icon-circle">
-            <span className="info-icon-span">🕐</span>
+        <div className="contact-info-item">
+          <div className="contact-info-icon">
+            <FaClock />
           </div>
           <div className="info-text-block">
             <span className="info-label">Business Hours</span>
             <span className="info-value-text">{CONTACT_INFO.hours}</span>
           </div>
-        </li>
-      </ul>
+        </div>
+      </div>
 
       {/* Google Map iframe */}
-      <div className="map-container">
+      <div className="contact-map">
         <iframe
           src={CONTACT_INFO.addressUrl}
           width="100%"

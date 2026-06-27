@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { NavLink, Link, useLocation } from 'react-router-dom';
+import { FaChartBar } from 'react-icons/fa';
 import Button from './Button';
 import { NAV_LINKS } from '../../utils/constants';
 import './Navbar.css';
@@ -37,7 +38,7 @@ export const Navbar = () => {
         {/* Logo and Brand */}
         <Link to="/" className="navbar-logo-container">
           <div className="navbar-logo">
-            <span className="logo-icon">📊</span>
+            <FaChartBar style={{ color: '#E63A00', fontSize: '1.8rem' }} />
             <div className="logo-text-group">
               <span className="logo-name">SEO Leads Me</span>
               <span className="logo-tagline">Generate. Rank. Convert.</span>

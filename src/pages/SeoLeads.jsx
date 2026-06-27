@@ -22,11 +22,7 @@ export const SeoLeads = () => {
       />
 
       {/* Services grid (white bg) */}
-      <section className="section-light">
-        <div className="container">
-          <ServicesGrid />
-        </div>
-      </section>
+      <ServicesGrid />
 
       {/* Proven Marketing Process (dark navy bg) */}
       <MarketingProcess />

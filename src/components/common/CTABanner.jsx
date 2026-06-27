@@ -1,4 +1,5 @@
 import React from 'react';
+import { FaRocket } from 'react-icons/fa';
 import Button from './Button';
 import './CTABanner.css';
 
@@ -23,7 +24,7 @@ export const CTABanner = ({
   return (
     <section className={`cta-banner cta-variant-${variant} fade-up-element`}>
       <div className="container cta-container">
-        {showIcon && <div className="cta-icon">🚀</div>}
+        {showIcon && <div className="cta-icon"><FaRocket /></div>}
         <h2 className="cta-title">{title}</h2>
         <p className="cta-subtitle">{subtitle}</p>
         <div className="cta-button-wrapper">

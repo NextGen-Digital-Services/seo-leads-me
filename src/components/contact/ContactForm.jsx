@@ -1,4 +1,5 @@
 import React from 'react';
+import { FaCheckCircle } from 'react-icons/fa';
 import useFormValidation from '../../hooks/useFormValidation';
 import Button from '../common/Button';
 import './ContactForm.css';
@@ -34,7 +35,7 @@ export const ContactForm = () => {
 
       {isSuccess && (
         <div className="success-message animate-fade-in">
-          <span className="success-icon">✓</span>
+          <FaCheckCircle style={{ color: '#ffffff', fontSize: '1.25rem' }} />
           <span className="success-text">Your message has been sent successfully!</span>
         </div>
       )}

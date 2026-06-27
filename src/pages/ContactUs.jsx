@@ -21,15 +21,13 @@ export const ContactUs = () => {
       />
 
       {/* Main Contact Section (white bg) */}
-      <section className="section-light">
-        <div className="container">
-          <div className="grid grid-2" style={{ gap: '50px', alignItems: 'stretch' }}>
-            {/* Left Column: Form */}
-            <ContactForm />
+      <section className="contact-section">
+        <div className="contact-inner">
+          {/* Left Column: Form */}
+          <ContactForm />
 
-            {/* Right Column: Details & Map */}
-            <ContactInfo />
-          </div>
+          {/* Right Column: Details & Map */}
+          <ContactInfo />
         </div>
       </section>
     </div>

@@ -2,161 +2,207 @@
 @import './animations.css';
 
 /* Base Reset */
-*, *::before, *::after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 html {
-  scroll-behavior: smooth;
-  font-size: 16px;
+    scroll-behavior: smooth;
+    font-size: 16px;
 }
 
 body {
-  font-family: var(--font-body);
-  background-color: var(--color-primary);
-  color: var(--color-text-light);
-  line-height: 1.6;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  overflow-x: hidden;
+    font-family: var(--font-body);
+    background-color: var(--color-primary);
+    color: var(--color-text-light);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
 }
 
+
 /* Headings */
-h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-headings);
-  color: var(--color-white);
-  font-weight: 700;
-  line-height: 1.2;
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: var(--font-headings);
+    color: var(--color-white);
+    font-weight: 700;
+    line-height: 1.2;
 }
 
 h1 {
-  font-size: 3rem; /* 48px */
+    font-size: 3rem;
+    /* 48px */
 }
 
 h2 {
-  font-size: 2.25rem; /* 36px */
+    font-size: 2.25rem;
+    /* 36px */
 }
 
 h3 {
-  font-size: 1.5rem; /* 24px */
+    font-size: 1.5rem;
+    /* 24px */
 }
 
 a {
-  color: inherit;
-  text-decoration: none;
-  transition: color var(--transition-speed) var(--transition-bezier);
+    color: inherit;
+    text-decoration: none;
+    transition: color var(--transition-speed) var(--transition-bezier);
 }
 
 img {
-  max-width: 100%;
-  height: auto;
-  display: block;
+    max-width: 100%;
+    height: auto;
+    display: block;
 }
+
 
 /* Layout Elements */
+
 .container {
-  width: 100%;
-  max-width: var(--container-max-width);
-  margin-left: auto;
-  margin-right: auto;
-  padding-left: 20px;
-  padding-right: 20px;
+    width: 100%;
+    max-width: var(--container-max-width);
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 40px;
 }
 
+
 /* Alternating Sections */
+
 section {
-  padding: 80px 0;
-  position: relative;
-  overflow: hidden;
+    padding: 80px 0;
+    position: relative;
+    overflow: hidden;
 }
 
 .section-dark {
-  background-color: var(--color-primary);
-  color: var(--color-white);
+    background-color: var(--color-primary);
+    color: var(--color-white);
 }
 
 .section-light {
-  background-color: var(--color-light-bg);
-  color: var(--color-text-dark);
+    background-color: var(--color-light-bg);
+    color: var(--color-text-dark);
 }
 
 .section-light h1,
 .section-light h2,
 .section-light h3,
 .section-light h4 {
-  color: var(--color-primary);
+    color: var(--color-primary);
 }
 
 .section-accent {
-  background-color: var(--color-accent);
-  color: var(--color-white);
+    background-color: var(--color-accent);
+    color: var(--color-white);
 }
 
-/* Utility Classes */
-.text-center { text-align: center; }
-.text-left { text-align: left; }
-.text-right { text-align: right; }
-.text-accent { color: var(--color-accent); }
 
-.flex { display: flex; }
-.grid { display: grid; }
+/* Utility Classes */
+
+.text-center {
+    text-align: center;
+}
+
+.text-left {
+    text-align: left;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.text-accent {
+    color: var(--color-accent);
+}
+
+.flex {
+    display: flex;
+}
+
+.grid {
+    display: grid;
+}
+
 
 /* Custom Scrollbar */
+
 ::-webkit-scrollbar {
-  width: 8px;
+    width: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--color-primary);
+    background: var(--color-primary);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--color-primary-light);
-  border-radius: var(--border-radius-full);
+    background: var(--color-primary-light);
+    border-radius: var(--border-radius-full);
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--color-accent);
+    background: var(--color-accent);
 }
 
+
 /* Responsive Grid/Flex helpers */
+
 .grid-2 {
-  grid-template-columns: repeat(2, 1fr);
-  gap: 40px;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
 }
 
 .grid-3 {
-  grid-template-columns: repeat(3, 1fr);
-  gap: 30px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
 }
 
 .grid-4 {
-  grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
 }
 
 @media (max-width: 992px) {
-  .grid-3 {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  .grid-4 {
-    grid-template-columns: repeat(2, 1fr);
-  }
+    .grid-3 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .grid-4 {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
 
 @media (max-width: 768px) {
-  section {
-    padding: 60px 0;
-  }
-  
-  h1 { font-size: 2.25rem; }
-  h2 { font-size: 1.75rem; }
-  h3 { font-size: 1.25rem; }
-
-  .grid-2, .grid-3, .grid-4 {
-    grid-template-columns: 1fr;
-    gap: 30px;
-  }
+    section {
+        padding: 60px 0;
+    }
+    h1 {
+        font-size: 2.25rem;
+    }
+    h2 {
+        font-size: 1.75rem;
+    }
+    h3 {
+        font-size: 1.25rem;
+    }
+    .grid-2,
+    .grid-3,
+    .grid-4 {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
 }

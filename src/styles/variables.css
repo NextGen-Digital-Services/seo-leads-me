@@ -1,34 +1,31 @@
 :root {
-  /* Color Palette */
-  --color-primary: #0D1B2A;
-  --color-primary-light: #1A2D42;
-  --color-accent: #E63A00;
-  --color-accent-hover: #CC3300;
-  --color-white: #FFFFFF;
-  --color-light-bg: #F8F9FA;
-  --color-text-dark: #1A2D42;
-  --color-text-muted: #6C757D;
-  --color-text-light: #E0E1DD;
-  --color-border: #E5E7EB;
-  --color-border-dark: #2B3A4C;
-
-  /* Typography */
-  --font-headings: 'Poppins', sans-serif;
-  --font-body: 'Inter', sans-serif;
-
-  /* Layout and Spacing */
-  --navbar-height: 70px;
-  --container-max-width: 1200px;
-  --transition-speed: 0.3s;
-  --transition-bezier: cubic-bezier(0.4, 0, 0.2, 1);
-
-  /* Shadows and Border Radius */
-  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-  --shadow-accent: 0 4px 14px 0 rgba(230, 58, 0, 0.4);
-  --border-radius-sm: 4px;
-  --border-radius-md: 8px;
-  --border-radius-lg: 16px;
-  --border-radius-full: 9999px;
+    /* Color Palette */
+    --color-primary: #0D1B2A;
+    --color-primary-light: #1A2D42;
+    --color-accent: #E63A00;
+    --color-accent-hover: #CC3300;
+    --color-white: #FFFFFF;
+    --color-light-bg: #F8F9FA;
+    --color-text-dark: #1A2D42;
+    --color-text-muted: #6C757D;
+    --color-text-light: #E0E1DD;
+    --color-border: #E5E7EB;
+    --color-border-dark: #2B3A4C;
+    /* Typography */
+    --font-headings: 'Poppins', sans-serif;
+    --font-body: 'Inter', sans-serif;
+    /* Layout and Spacing */
+    --navbar-height: 80px;
+    --container-max-width: 1200px;
+    --transition-speed: 0.3s;
+    --transition-bezier: cubic-bezier(0.4, 0, 0.2, 1);
+    /* Shadows and Border Radius */
+    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    --shadow-accent: 0 4px 14px 0 rgba(230, 58, 0, 0.4);
+    --border-radius-sm: 4px;
+    --border-radius-md: 8px;
+    --border-radius-lg: 16px;
+    --border-radius-full: 9999px;
 }

@@ -10,6 +10,7 @@ export const ContactForm = () => {
     errors,
     isSubmitting,
     isSuccess,
+    apiError,
     handleChange,
     handleBlur,
     handleSubmit
@@ -21,9 +22,44 @@ export const ContactForm = () => {
     message: ''
   });
 
-  const onSubmit = (formData) => {
-    // Console log form output or integrate API
-    console.log('Form Submitted successfully:', formData);
+  const onSubmit = async (formData) => {
+    const accessKey = import.meta.env.VITE_WEB3FORMS_ACCESS_KEY;
+    if (!accessKey) {
+      throw new Error('Web3Forms access key is not configured.');
+    }
+
+    const payload = {
+      access_key: accessKey,
+      subject: `New Lead Inquiry from ${formData.fullName}`,
+      from_name: 'SEO Leads Web App',
+      name: formData.fullName,
+      email: formData.email,
+      message: formData.message
+    };
+
+    if (formData.phone) {
+      payload.phone = formData.phone;
+    }
+    if (formData.company) {
+      payload.company = formData.company;
+    }
+    if (formData.service) {
+      payload.service = formData.service;
+    }
+
+    const response = await fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      },
+      body: JSON.stringify(payload)
+    });
+
+    const result = await response.json();
+    if (!result.success) {
+      throw new Error(result.message || 'API submission failed.');
+    }
   };
 
   return (
@@ -34,9 +70,15 @@ export const ContactForm = () => {
       </p>
 
       {isSuccess && (
-        <div className="success-message animate-fade-in">
+        <div className="success-message animate-fade-in" style={{ backgroundColor: '#28a745', color: '#ffffff', padding: '15px', borderRadius: '6px', marginBottom: '24px', display: 'flex', alignItems: 'center', gap: '10px' }}>
           <FaCheckCircle style={{ color: '#ffffff', fontSize: '1.25rem' }} />
-          <span className="success-text">Your message has been sent successfully!</span>
+          <span className="success-text">Thank you! Your inquiry has been submitted successfully.</span>
+        </div>
+      )}
+
+      {apiError && (
+        <div className="error-message animate-fade-in" style={{ backgroundColor: '#dc3545', color: '#ffffff', padding: '15px', borderRadius: '6px', marginBottom: '24px', display: 'flex', alignItems: 'center', gap: '10px' }}>
+          <span className="error-text">Something went wrong. Please try again.</span>
         </div>
       )}
 

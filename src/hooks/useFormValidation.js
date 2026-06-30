@@ -86,22 +86,30 @@ export const useFormValidation = (initialValues = {
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleSubmit = (e, onSubmitCallback) => {
+  const [apiError, setApiError] = useState('');
+
+  const handleSubmit = async (e, onSubmitCallback) => {
     e.preventDefault();
     setIsSuccess(false);
+    setApiError('');
     
     const isValid = validateAll();
     if (isValid) {
       setIsSubmitting(true);
-      
-      // Simulate API submit
-      setTimeout(() => {
-        setIsSubmitting(false);
+      try {
+        if (onSubmitCallback) {
+          await onSubmitCallback(values);
+        }
         setIsSuccess(true);
         setValues(initialValues);
         setErrors({});
-        if (onSubmitCallback) onSubmitCallback(values);
-      }, 1000);
+      } catch (err) {
+        console.error('Form submission error:', err);
+        setApiError(err.message || 'Something went wrong. Please try again.');
+        throw err; // propagate to let component handle if needed
+      } finally {
+        setIsSubmitting(false);
+      }
     }
   };
 
@@ -110,6 +118,7 @@ export const useFormValidation = (initialValues = {
     setErrors({});
     setIsSuccess(false);
     setIsSubmitting(false);
+    setApiError('');
   };
 
   return {
@@ -117,6 +126,7 @@ export const useFormValidation = (initialValues = {
     errors,
     isSubmitting,
     isSuccess,
+    apiError,
     handleChange,
     handleBlur,
     handleSubmit,

@@ -7,20 +7,55 @@ export const NewsletterBlock = () => {
   const [honeypot, setHoneypot] = useState('');
   const [status, setStatus] = useState(''); // '', 'success', 'error'
 
-  const handleSubmit = (e) => {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (honeypot) {
-      // Spam submission detected
-      setStatus('success'); // Silently ignore spam
+      setStatus('success');
       return;
     }
     if (!email) {
       setStatus('error');
       return;
     }
-    console.log('Newsletter signup email:', email);
-    setStatus('success');
-    setEmail('');
+
+    setIsSubmitting(true);
+    setStatus('');
+    
+    try {
+      const accessKey = import.meta.env.VITE_WEB3FORMS_ACCESS_KEY;
+      if (!accessKey) {
+        throw new Error('Web3Forms access key is not configured.');
+      }
+
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify({
+          access_key: accessKey,
+          subject: 'New Newsletter Subscription Request',
+          from_name: 'SEO Leads Web App',
+          email: email
+        })
+      });
+
+      const result = await response.json();
+      if (!result.success) {
+        throw new Error(result.message || 'API submission failed.');
+      }
+
+      setStatus('success');
+      setEmail('');
+    } catch (err) {
+      console.error('Newsletter subscription error:', err);
+      setStatus('error');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -36,6 +71,12 @@ export const NewsletterBlock = () => {
         {status === 'success' && (
           <div style={{ background: '#28a745', color: '#ffffff', padding: '15px', borderRadius: '6px', marginBottom: '20px', fontWeight: 'bold' }}>
             Thanks for subscribing! Check your inbox for the discount code.
+          </div>
+        )}
+
+        {status === 'error' && (
+          <div style={{ background: '#dc3545', color: '#ffffff', padding: '15px', borderRadius: '6px', marginBottom: '20px', fontWeight: 'bold' }}>
+            Something went wrong. Please try again.
           </div>
         )}
 
@@ -67,9 +108,10 @@ export const NewsletterBlock = () => {
                 fontSize: '15px'
               }}
               required
+              disabled={isSubmitting}
             />
-            <Button type="submit" variant="filled">
-              Subscribe
+            <Button type="submit" variant="filled" disabled={isSubmitting}>
+              {isSubmitting ? 'Subscribing...' : 'Subscribe'}
             </Button>
           </div>
         </form>

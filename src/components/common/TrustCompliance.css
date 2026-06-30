@@ -1,0 +1,12 @@
+/* TrustCompliance CSS */
+.trust-compliance-section {
+  width: 100%;
+}
+.compliance-card {
+  transition: all 0.3s ease;
+}
+.compliance-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.03) !important;
+  border-color: #E63A00 !important;
+}

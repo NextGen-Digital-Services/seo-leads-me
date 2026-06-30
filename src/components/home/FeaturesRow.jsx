@@ -1,43 +1,40 @@
 import React from 'react';
-import { FaUsers, FaSearch, FaBullhorn, FaChartBar } from 'react-icons/fa';
+import { FaSearch, FaLaptop, FaCalendarCheck, FaShareAlt, FaBullhorn, FaMobileAlt } from 'react-icons/fa';
+import { homeContent } from '../../data/websiteContent';
+import SectionTitle from '../common/SectionTitle';
 import './FeaturesRow.css';
 
-const FEATURES = [
-  {
-    title: 'Lead Generation',
-    description: 'Acquire high-intent customers and boost sales with qualified campaigns.',
-    icon: <FaUsers />
-  },
-  {
-    title: 'SEO Optimisation',
-    description: 'Grow organic visibility and drive persistent traffic on your terms.',
-    icon: <FaSearch />
-  },
-  {
-    title: 'PPC Advertising',
-    description: 'Launch targeted paid campaigns designed for positive ROI and speed.',
-    icon: <FaBullhorn />
-  },
-  {
-    title: 'Analytics & Reports',
-    description: 'Track growth metrics, user journeys, and conversions transparently.',
-    icon: <FaChartBar />
-  }
-];
+const ICON_MAP = {
+  'SEO Leads': <FaSearch />,
+  'Web Designing Leads': <FaLaptop />,
+  'Appointment Leads': <FaCalendarCheck />,
+  'SMO Leads': <FaShareAlt />,
+  'PPC Leads': <FaBullhorn />,
+  'Application Development Leads': <FaMobileAlt />
+};
 
 export const FeaturesRow = () => {
+  const { services } = homeContent;
+
   return (
-    <section className="features">
-      <div className="features__grid">
-        {FEATURES.map((feat) => (
-          <div key={feat.title} className="features__card fade-up-element">
-            <div className="icon-circle">
-              {feat.icon}
+    <section className="features section-light" style={{ padding: '80px 0' }}>
+      <div className="container">
+        <SectionTitle 
+          title="Services We Offer" 
+          subtitle="Pick Your Niche. We'll Deliver the Buyers." 
+          align="center"
+        />
+        <div className="features__grid" style={{ marginTop: '40px', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '30px' }}>
+          {services.map((svc) => (
+            <div key={svc.title} className="features__card fade-up-element" style={{ background: '#ffffff', padding: '30px', borderRadius: '8px', border: '1px solid var(--color-border)' }}>
+              <div className="icon-circle" style={{ marginBottom: '20px' }}>
+                {ICON_MAP[svc.title] || <FaSearch />}
+              </div>
+              <h3>{svc.title}</h3>
+              <p>{svc.desc}</p>
             </div>
-            <h3>{feat.title}</h3>
-            <p>{feat.description}</p>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </section>
   );

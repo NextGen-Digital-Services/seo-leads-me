@@ -28,9 +28,9 @@ export const ContactForm = () => {
 
   return (
     <div className="contact-form-wrapper fade-up-element">
-      <h3 className="form-heading">Get In Touch</h3>
+      <h3 className="form-heading">Drop Us a Line</h3>
       <p className="form-subtext">
-        Have a project in mind? Let's talk and grow your business together.
+        Get Free Samples
       </p>
 
       {isSuccess && (

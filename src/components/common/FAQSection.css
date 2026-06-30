@@ -1,0 +1,8 @@
+/* FAQSection CSS */
+.faq-section {
+  width: 100%;
+}
+.faq-item:hover {
+  border-color: #E63A00 !important;
+  box-shadow: 0 4px 12px rgba(230, 58, 0, 0.04);
+}

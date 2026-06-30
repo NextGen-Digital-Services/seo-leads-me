@@ -27,6 +27,20 @@ export const Button = ({
   const btnClass = `btn btn-${variant} ${fullWidth ? 'btn-block' : ''} ${className}`;
 
   if (to) {
+    if (to.startsWith('#')) {
+      return (
+        <a href={to} className={btnClass} onClick={(e) => {
+          if (onClick) onClick(e);
+          const target = document.querySelector(to);
+          if (target) {
+            e.preventDefault();
+            target.scrollIntoView({ behavior: 'smooth' });
+          }
+        }}>
+          {children}
+        </a>
+      );
+    }
     return (
       <Link to={to} className={btnClass} onClick={onClick}>
         {children}

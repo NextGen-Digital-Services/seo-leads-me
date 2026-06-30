@@ -8,6 +8,7 @@ import Home from '../pages/Home';
 import AboutUs from '../pages/AboutUs';
 import SeoLeads from '../pages/SeoLeads';
 import WebDesigningLeads from '../pages/WebDesigningLeads';
+import AppointmentLeads from '../pages/AppointmentLeads';
 import ContactUs from '../pages/ContactUs';
 
 /**
@@ -57,7 +58,8 @@ export const AppRouter = () => {
           <Route index element={<Home />} />
           <Route path="about-us" element={<AboutUs />} />
           <Route path="seo-leads" element={<SeoLeads />} />
-          <Route path="web-designing-leads" element={<WebDesigningLeads />} />
+          <Route path="website-designing-leads" element={<WebDesigningLeads />} />
+          <Route path="appointment-leads" element={<AppointmentLeads />} />
           <Route path="contact-us" element={<ContactUs />} />
           
           {/* Redirect all unmatched paths (404) back to Home */}

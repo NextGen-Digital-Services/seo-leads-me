@@ -1,0 +1,11 @@
+/* BoldTestimonials CSS */
+.bold-testimonials-section {
+  width: 100%;
+}
+.testimonial-slide {
+  animation: fadeInTestimonial 0.8s ease forwards;
+}
+@keyframes fadeInTestimonial {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
